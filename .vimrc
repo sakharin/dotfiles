@@ -59,6 +59,10 @@ Plugin 'neoclide/coc.nvim'
 " Fugitive
 Plugin 'tpope/vim-fugitive'
 
+" Airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -272,3 +276,17 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " === Intellisense, Conquer of Completetion ===
+
+" === Airline ===
+let g:airline_powerline_fonts = 1
+set laststatus=2
+set ttimeoutlen=10
+set t_Co=256
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+" === Airline ===
