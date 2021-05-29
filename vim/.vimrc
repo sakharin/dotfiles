@@ -109,7 +109,7 @@ set colorcolumn=80
 
 " === Intellisense, Conquer of Completetion ===
 " Install extensions
-" :CocInstall coc-css coc-eslint coc-json coc-html coc-jedi coc-markdownlint coc-prettier coc-sh coc-sql coc-tsserver coc-yaml
+" :CocInstall coc-css coc-eslint coc-json coc-html coc-pyright coc-markdownlint coc-prettier coc-sh coc-sql coc-tsserver coc-yaml
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
