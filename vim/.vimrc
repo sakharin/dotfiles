@@ -292,3 +292,11 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 " === Airline ===
+
+" === Set spaces ===
+autocmd FileType vim setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 expandtab
+" === Set spaces ===
