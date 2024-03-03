@@ -13,3 +13,6 @@ vim.opt.incsearch = true
 
 -- Turn on line number.
 vim.opt.number = true
+
+-- Turn on cursor line
+vim.opt.cul = true
