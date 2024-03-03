@@ -31,3 +31,6 @@ vim.opt.colorcolumn = "80"
 
 -- Set ,e to open file in same directory of editing file
 vim.keymap.set("n", ",e", ':e <C-R>=expand("%:p:h") . "/" <CR>')
+
+-- Use system clipboard
+vim.api.nvim_set_option("clipboard", "unnamed")
