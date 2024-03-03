@@ -25,3 +25,6 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.shiftwidth = 2
+
+-- Show vertical line at column 80
+vim.opt.colorcolumn = "80"
