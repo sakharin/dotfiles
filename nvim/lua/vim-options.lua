@@ -10,3 +10,6 @@ vim.opt.hlsearch = true
 
 -- Searches as you type
 vim.opt.incsearch = true
+
+-- Turn on line number.
+vim.opt.number = true
