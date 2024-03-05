@@ -30,6 +30,16 @@ return {
           end,
         },
       },
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          force_visible_in_empty_folder = true,
+          show_hidden_count = true,
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          hide_hidden = false,
+        },
+      },
     })
     vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", { desc = "Reveal file in neotree" })
   end,
