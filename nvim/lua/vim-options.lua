@@ -37,3 +37,6 @@ vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- Enables mouse support
 vim.opt.mouse = "a"
+
+-- Don't show the mode, since it's already in status line
+vim.opt.showmode = false
