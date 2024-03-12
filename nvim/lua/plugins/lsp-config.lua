@@ -48,13 +48,13 @@ return {
           local opts = { buffer = event.buf }
           vim.keymap.set(
             "n",
-            "gD",
+            "<leader>gD",
             vim.lsp.buf.declaration,
             { table.unpack(opts), desc = "[G]o to [D]eclaration" }
           )
           vim.keymap.set(
             "n",
-            "gd",
+            "<leader>gd",
             vim.lsp.buf.definition,
             { table.unpack(opts), desc = "[G]o to [D]efinition" }
           )
@@ -66,7 +66,7 @@ return {
           )
           vim.keymap.set(
             "n",
-            "gi",
+            "<leader>gi",
             vim.lsp.buf.implementation,
             { table.unpack(opts), desc = "[G]o to [I]mplementation" }
           )
@@ -106,7 +106,7 @@ return {
           )
           vim.keymap.set(
             "n",
-            "gr",
+            "<leader>gr",
             vim.lsp.buf.references,
             { table.unpack(opts), desc = "[G]o to [R]eferences" }
           )
