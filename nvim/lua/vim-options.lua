@@ -34,3 +34,6 @@ vim.keymap.set("n", ",e", ':e <C-R>=expand("%:p:h") . "/" <CR>')
 
 -- Use system clipboard
 vim.api.nvim_set_option("clipboard", "unnamed")
+
+-- Enables mouse support
+vim.opt.mouse = "a"
