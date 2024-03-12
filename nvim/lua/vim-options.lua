@@ -40,3 +40,9 @@ vim.opt.mouse = "a"
 
 -- Don't show the mode, since it's already in status line
 vim.opt.showmode = false
+
+-- Disable arrow movement, resize splits instead.
+vim.keymap.set("n", "<Up>", ":resize +2<CR>")
+vim.keymap.set("n", "<Down>", ":resize -2<CR>")
+vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>")
+vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>")
