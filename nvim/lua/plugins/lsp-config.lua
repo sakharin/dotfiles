@@ -25,6 +25,9 @@ return {
     end,
   },
   {
+    "rupurt/vim-mql5",
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -38,6 +41,19 @@ return {
       })
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
+      })
+      -- Configure language server for clangd
+      lspconfig.clangd.setup({
+        cmd = { "clangd", "--background-index" },
+        root_dir = function(fname)
+          return require("lspconfig").util.root_pattern(
+            "compile_flags.txt",
+            "compile_commands.json",
+            ".git",
+            ".hg"
+          )(fname) or vim.loop.os_homedir()
+        end,
+        filetypes = { "c", "cpp", "objc", "objcpp" },
       })
 
       vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
@@ -151,6 +167,50 @@ return {
               callback = vim.lsp.buf.clear_references,
             })
           end
+
+          -- Define the hooks
+          local function CandCPP_hook()
+            vim.bo.makeprg = "make"
+            vim.bo.shiftwidth = 4
+            vim.bo.softtabstop = 4
+            vim.wo.number = true
+
+            vim.keymap.set("n", "<F7>", ":make<CR>", { noremap = true, silent = true, buffer = true })
+            vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>ko", { noremap = true, silent = true, buffer = true })
+            vim.keymap.set(
+              "i",
+              "{;<CR>",
+              "{<CR>};<Esc>ko",
+              { noremap = true, silent = true, buffer = true }
+            )
+            vim.keymap.set(
+              "i",
+              "<c-L>",
+              "coc#refresh()",
+              { noremap = true, silent = true, expr = true, buffer = true }
+            )
+          end
+          local function Mql_hook()
+            vim.bo.filetype = "cpp"
+            vim.bo.makeprg = "compile_mql"
+
+            vim.keymap.set("n", "<F7>", function()
+              vim.cmd("exe 'make' " .. vim.fn.expand("%:p"))
+            end, { noremap = true, silent = true, buffer = true })
+          end
+
+          -- Create the augroup and autocommands using vim.api.nvim_create_autocmd
+          vim.api.nvim_create_augroup("Mode_hooks_group", { clear = true })
+          vim.api.nvim_create_autocmd("FileType", {
+            pattern = { "c", "cpp" },
+            callback = CandCPP_hook,
+            group = "Mode_hooks_group",
+          })
+          vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+            pattern = { "*.mq5", "*.mqh" },
+            callback = Mql_hook,
+            group = "Mode_hooks_group",
+          })
         end,
       })
     end,
