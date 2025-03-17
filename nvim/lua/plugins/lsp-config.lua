@@ -18,7 +18,7 @@ return {
           "lua_ls",
           "marksman",
           "pyright",
-          "tsserver",
+          "ts_ls",
           "yamlls",
         },
       })
@@ -36,7 +36,7 @@ return {
       lspconfig.pyright.setup({
         capabilities = capabilities,
       })
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
       })
 
