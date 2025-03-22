@@ -9,28 +9,38 @@ return {
     lazy = true,
     opts = {
       ensure_installed = {
-        --Liners
+        --LSP-----------------------------------------------------------------
+        "html-lsp",
+        "css-lsp",
+
         --Bash
+        "bash-language-server",
 
         --Lua
+        "lua-language-server",
 
         --Python
-        --"mypy",
-        "ruff",
         "pyright",
+        "ruff",
 
         --Typescript/Javascript
+        "tsp-server",
 
         --CSS
+        "css-lsp",
 
         --JSON
+        "json-lsp",
 
         --Markdown
+        "marksman",
 
         --YAML
+        "yaml-language-server",
 
-        --Formatters
+        --Formatters----------------------------------------------------------
         --Bash
+        "beautysh",
 
         --Lua
         "stylua",
