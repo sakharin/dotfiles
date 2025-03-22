@@ -41,10 +41,10 @@ local opts = {
     -- visual mode
     map("v", "<leader>hs", function()
       gs.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
-    end, { desc = "stage git hunk" })
+    end, { desc = "stage git [s]tage hunk" })
     map("v", "<leader>hr", function()
       gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
-    end, { desc = "reset git hunk" })
+    end, { desc = "[r]eset git hunk" })
     -- normal mode
     map("n", "<leader>hs", gs.stage_hunk, { desc = "git [s]tage hunk" })
     map("n", "<leader>hr", gs.reset_hunk, { desc = "git [r]eset hunk" })
@@ -55,7 +55,7 @@ local opts = {
     map("n", "<leader>hb", function()
       gs.blame_line { full = false }
     end, { desc = "git [b]lame line" })
-    map("n", "<leader>hd", gs.diffthis, { desc = "git [diff against index" })
+    map("n", "<leader>hd", gs.diffthis, { desc = "git [d]iff against index" })
     map("n", "<leader>hD", function()
       gs.diffthis "~"
     end, { desc = "git [D]iff against last commit" })
