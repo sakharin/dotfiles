@@ -9,8 +9,46 @@ return {
     lazy = true,
     opts = {
       ensure_installed = {
+        --Liners
+        --Bash
+
+        --Lua
+
+        --Python
         --"mypy",
         "ruff",
+        "pyright",
+
+        --Typescript/Javascript
+
+        --CSS
+
+        --JSON
+
+        --Markdown
+
+        --YAML
+
+        --Formatters
+        --Bash
+
+        --Lua
+        "stylua",
+
+        --Python
+        "isort",
+        "black",
+
+        --Typescript/Javascript
+        "prettier",
+
+        --CSS
+
+        --JSON
+
+        --Markdown
+
+        --YAML
       },
     },
   },
