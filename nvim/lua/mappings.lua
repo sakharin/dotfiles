@@ -1,5 +1,10 @@
 require "nvchad.mappings"
 
+local nomap = vim.keymap.del
+
+nomap("n", "<leader>h")
+nomap("n", "<leader>v")
+
 local map = vim.keymap.set
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
