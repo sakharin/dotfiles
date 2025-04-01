@@ -11,6 +11,8 @@ local opts = {
     --null_ls.builtins.diagnostics.mypy,
     null_ls.builtins.diagnostics.ruff,
     --Typescript/Javascript
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.formatting.prettier,
 
     --CSS
 

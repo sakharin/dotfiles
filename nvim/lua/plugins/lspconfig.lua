@@ -1,5 +1,12 @@
 return {
   {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "configs.null-ls"
+    end,
+  },
+  {
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
     config = function()
@@ -11,6 +18,7 @@ return {
     opts = {
       ensure_installed = {
         "eslint-lsp",
+        "prettier",
         -- "typescript-language-server"
         "ts_ls",
       },
