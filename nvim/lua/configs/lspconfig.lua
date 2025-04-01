@@ -35,3 +35,14 @@ for _, lsp in ipairs(custom_servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
+lspconfig.ts_ls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
+}
