@@ -10,37 +10,37 @@ return {
     opts = {
       ensure_installed = {
         --LSP-----------------------------------------------------------------
-        "html-lsp",
-        "css-lsp",
+        --"html-lsp",
+        --"css-lsp",
 
         --Bash
-        "bash-language-server",
+        --"bash-language-server",
 
         --Lua
-        "lua-language-server",
+        --"lua-language-server",
 
         --Python
         "pyright",
         "ruff",
 
         --Typescript/Javascript
-        "tsp-server",
+        --"tsp-server",
 
         --CSS
-        "css-lsp",
+        --"css-lsp",
 
         --JSON
-        "json-lsp",
+        --"json-lsp",
 
         --Markdown
-        "marksman",
+        --"marksman",
 
         --YAML
-        "yaml-language-server",
+        --"yaml-language-server",
 
         --Formatters----------------------------------------------------------
         --Bash
-        "beautysh",
+        --"beautysh",
 
         --Lua
         "stylua",

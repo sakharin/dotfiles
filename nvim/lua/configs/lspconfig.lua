@@ -4,7 +4,10 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
 
-local servers = { "html-lsp", "css-lsp" }
+local servers = {
+  --"html-lsp",
+  --"css-lsp"
+}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach,
@@ -14,15 +17,15 @@ for _, lsp in ipairs(servers) do
 end
 
 local custom_servers = {
-  "bash-language-server",
-  "lua-language-server",
+  --"bash-language-server",
+  --"lua-language-server",
   "pyright",
   "ruff",
-  "tsp-server",
-  "css-lsp",
-  "json-lsp",
-  "marksman",
-  "yaml-language-server",
+  --"tsp-server",
+  --"css-lsp",
+  --"json-lsp",
+  --"marksman",
+  --"yaml-language-server",
 }
 
 for _, lsp in ipairs(custom_servers) do
