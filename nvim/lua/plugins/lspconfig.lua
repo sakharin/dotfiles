@@ -6,11 +6,22 @@ return {
     end,
   },
   {
+    "mfussenegger/nvim-lint",
+    event = "VeryLazy",
+    config = function()
+      require "configs.lint"
+    end,
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "ruff",
+        --Python
         "pyright",
+        "ruff",
+
+        --Typescript/Javascript
+        "eslint-lsp",
         "ts_ls",
       },
     },
