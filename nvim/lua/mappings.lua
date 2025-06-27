@@ -17,3 +17,9 @@ vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", { desc = "Re
 -- disable horizontal and vertical terminal
 nomap("n", "<leader>h")
 nomap("n", "<leader>v")
+
+-- Copilot mappings
+-- Map ctrl + l to accept the suggestion.
+map("i", "<C-l>", function()
+  vim.fn.feedkeys(vim.fn["copilot#Accept"](), "")
+end, { desc = "Copilot Accept", noremap = true, silent = true })
