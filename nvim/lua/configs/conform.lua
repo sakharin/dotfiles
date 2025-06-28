@@ -6,6 +6,7 @@ local options = {
     python = { "isort", "black" },
     javascript = { "prettier" },
     typescript = { "prettier" },
+    json = { "prettier" },
   },
   formatters = {
     black = {
