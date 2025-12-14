@@ -31,5 +31,6 @@ for name, opts in pairs(servers) do
   opts.on_attach = nvlsp.on_attach
   opts.capabilities = nvlsp.capabilities
 
-  require("lspconfig")[name].setup(opts)
+  vim.lsp.config(name, opts)
+  vim.lsp.enable(name)
 end
