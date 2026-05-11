@@ -16,3 +16,9 @@ vim.keymap.set("n", "<Up>", ":resize +2<CR>")
 vim.keymap.set("n", "<Down>", ":resize -2<CR>")
 vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>")
 vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>")
+
+-- Copy relative path
+vim.keymap.set("n", "<leader>cf", '<cmd>let @+ = expand("%")<CR>', { desc = "Copy relative file path" })
+
+-- Copy absolute path
+vim.keymap.set("n", "<leader>cF", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Copy absolute file path" })
