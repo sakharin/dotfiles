@@ -12,9 +12,11 @@ local options = {
 
   ui = {
     cmp = {
-      icons = true,
       lspkind_text = true,
       style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+      format_colors = {
+        tailwind = false,
+      },
     },
 
     telescope = { style = "borderless" }, -- borderless / bordered
@@ -34,36 +36,37 @@ local options = {
       lazyload = true,
       order = { "treeOffset", "buffers", "tabs", "btns" },
       modules = nil,
+      bufwidth = 21,
+    },
+  },
+
+  nvdash = {
+    load_on_startup = false,
+
+    header = {
+      "                            ",
+      "     ▄▄         ▄ ▄▄▄▄▄▄▄   ",
+      "   ▄▀███▄     ▄██ █████▀    ",
+      "   ██▄▀███▄   ███           ",
+      "   ███  ▀███▄ ███           ",
+      "   ███    ▀██ ███           ",
+      "   ███      ▀ ███           ",
+      "   ▀██ █████▄▀█▀▄██████▄    ",
+      "     ▀ ▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀   ",
+      "                            ",
+      "     Powered By  eovim    ",
+      "                            ",
     },
 
-    nvdash = {
-      load_on_startup = false,
-
-      header = {
-        "           ▄ ▄                   ",
-        "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
-        "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
-        "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
-        "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
-        "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
-        "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
-        "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
-        "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
-      },
-
-      buttons = {
-        { "  Find File", "Spc f f", "Telescope find_files" },
-        { "󰈚  Recent Files", "Spc f o", "Telescope oldfiles" },
-        { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
-        { "  Bookmarks", "Spc m a", "Telescope marks" },
-        { "  Themes", "Spc t h", "Telescope themes" },
-        { "  Mappings", "Spc c h", "NvCheatsheet" },
-      },
+    buttons = {
+      { txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
+      { txt = "  Recent Files", keys = "Spc f o", cmd = "Telescope oldfiles" },
+      -- more... check nvconfig.lua file for full list of buttons
     },
   },
 
   term = {
-    winopts = { number = false, relativenumber = false },
+    winopts = { number = false },
     sizes = { sp = 0.3, vsp = 0.2, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
     float = {
       relative = "editor",
@@ -82,7 +85,14 @@ local options = {
     excluded_groups = { "terminal (t)", "autopairs", "Nvim", "Opens" }, -- can add group name or with mode
   },
 
-  mason = { cmd = true, pkgs = {} },
+  mason = { pkgs = {}, skip = {} },
+
+  colorify = {
+    enabled = true,
+    mode = "virtual", -- fg, bg, virtual
+    virt_text = "󱓻 ",
+    highlight = { hex = true, lspvars = true },
+  },
 }
 
 local status, chadrc = pcall(require, "chadrc")
