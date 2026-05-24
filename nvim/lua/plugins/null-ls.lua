@@ -11,7 +11,7 @@ return {
         --Lua
         "stylua",
 
-         --Python
+        --Python
         "isort",
         "black",
 

@@ -9,7 +9,8 @@ local opts = {
     null_ls.builtins.diagnostics.ruff,
 
     --Typescript/Javascript
-    null_ls.builtins.diagnostics.eslint,
+    -- eslint disabled: using nvim-lint instead (lint.lua)
+    -- null_ls.builtins.diagnostics.eslint,
   },
 }
 return opts

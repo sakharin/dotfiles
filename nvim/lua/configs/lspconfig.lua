@@ -16,7 +16,6 @@ local servers = {
     },
   },
   ruff = {},
-  eslint = {},
   ts_ls = {
     init_options = {
       preferences = {
