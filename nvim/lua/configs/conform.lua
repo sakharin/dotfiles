@@ -3,14 +3,26 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
-    python = { "isort", "black" },
+    python = {
+      "ruff_fix", -- Runs 'ruff check --fix' to lint and fix violations
+      "ruff_format", -- Runs 'ruff format' for code style
+      "ruff_organize_imports", -- Specifically for import sorting
+    },
     javascript = { "prettier" },
     typescript = { "prettier" },
     json = { "prettier" },
   },
   formatters = {
-    black = {
-      prepend_args = { "--line-length", "79", "--fast" },
+    ruff_format = {
+      args = {
+        "format",
+        "--line-length",
+        "79",
+        "--stdin-filename",
+        "$FILENAME",
+        "-",
+      },
+      stdin = true,
     },
   },
 

@@ -12,8 +12,7 @@ return {
         "stylua",
 
         --Python
-        "isort",
-        "black",
+        "ruff",
 
         --Typescript/Javascript
         "prettier",
