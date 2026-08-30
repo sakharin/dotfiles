@@ -22,6 +22,7 @@ return {
         "css-lsp",
         "bash-language-server",
         "awk-language-server",
+        "lua-language-server",
 
         -- Formatters / linters
         "stylua",

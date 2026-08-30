@@ -16,6 +16,7 @@ local servers = {
     },
   },
   ruff = {},
+  lua_ls = {},
   ts_ls = {
     init_options = {
       preferences = {
