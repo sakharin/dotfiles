@@ -4,21 +4,8 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        --Lua
-        "stylua",
-
-        --Python
-        "ruff",
-
-        --Typescript/Javascript
-        "prettier",
-      },
-    },
-  },
+  -- Mason tool list lives in plugins/mason-tool-installer.lua: bare
+  -- mason.nvim has no `ensure_installed` option, so it can't go here.
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = "VeryLazy",

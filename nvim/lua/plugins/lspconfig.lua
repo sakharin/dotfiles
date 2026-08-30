@@ -12,18 +12,6 @@ return {
       require "configs.lint"
     end,
   },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        --Python
-        "pyright",
-        "ruff",
-
-        --Typescript/Javascript
-        "eslint-lsp",
-        "ts_ls",
-      },
-    },
-  },
+  -- Mason tool list lives in plugins/mason-tool-installer.lua: bare
+  -- mason.nvim has no `ensure_installed` option, so it can't go here.
 }
