@@ -6,7 +6,9 @@ local opts = {
 
     --Python
     --null_ls.builtins.diagnostics.mypy,
-    null_ls.builtins.diagnostics.ruff,
+    -- ruff disabled: the ruff LSP server (configs/lspconfig.lua) already
+    -- reports these diagnostics; running both duplicated every finding.
+    -- null_ls.builtins.diagnostics.ruff,
 
     --Typescript/Javascript
     -- eslint disabled: using nvim-lint instead (lint.lua)
