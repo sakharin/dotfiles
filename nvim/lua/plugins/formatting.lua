@@ -6,11 +6,4 @@ return {
   },
   -- Mason tool list lives in plugins/mason-tool-installer.lua: bare
   -- mason.nvim has no `ensure_installed` option, so it can't go here.
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy",
-    opts = function()
-      return require "configs.null-ls"
-    end,
-  },
 }
