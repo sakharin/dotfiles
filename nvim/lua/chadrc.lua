@@ -8,40 +8,12 @@ local M = {}
 
 M.base46 = {
   theme = "ashes",
-
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
 }
 
--- M.nvdash = { load_on_startup = true }
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
---}
-
 M.ui = {
-  tabufline = {
-    order = { "treeOffset", "buffers", "tabs", "btns", "abc" },
-    modules = {
-      abc = function()
-        return "hi"
-      end,
-    },
-  },
   statusline = {
-    theme = "default",
-    separator_style = "default",
-    --order = { "mode", "f", "git", "%=", "lsp_msg", "%=", "lsp", "cwd", "xyz", "abc" },
     modules = {
-      abc = function()
-        return "hi"
-      end,
-
-      xyz = "hi",
-      f = "%F",
+      f = "%F", -- show full file path instead of the default
     },
   },
 }
