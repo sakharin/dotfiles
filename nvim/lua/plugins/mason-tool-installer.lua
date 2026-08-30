@@ -18,6 +18,10 @@ return {
         "pyright",
         "eslint-lsp",
         "typescript-language-server",
+        "html-lsp",
+        "css-lsp",
+        "bash-language-server",
+        "awk-language-server",
 
         -- Formatters / linters
         "stylua",
