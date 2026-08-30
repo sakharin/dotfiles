@@ -1,0 +1,10 @@
+# OS cruft
+.DS_Store
+
+# Editor swap/backup files
+*.swp
+*.swo
+*~
+
+# lazy-lock.json is intentionally tracked for reproducible plugin
+# versions across machines -- do not ignore it here.
