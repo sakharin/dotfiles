@@ -13,8 +13,11 @@ vim.g.copilot_assume_mapped = true
 local keymap = vim.keymap.set
 local opts = { silent = true }
 
--- Set <C-c> to accept copilot suggestion
-keymap("i", "<C-c>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+-- Set <C-j> to accept copilot suggestion (copilot.vim's own documented
+-- default binding). <C-c> is left alone: overriding it here replaced
+-- Neovim's native "leave insert mode" behavior, and inserted a stray
+-- newline via the fallback whenever no suggestion was showing.
+keymap("i", "<C-j>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
 
 -- Set <C-t> to accept line
 keymap("i", "<C-t>", "<Plug>(copilot-accept-line)", opts)
