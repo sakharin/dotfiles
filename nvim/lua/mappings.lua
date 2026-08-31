@@ -8,6 +8,13 @@ local nomap = vim.keymap.del
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+-- NvChad's defaults above (required at the top of this file) bind
+-- insert-mode <C-h>/<C-j>/<C-l> to arrow keys, clobbering Copilot's
+-- accept/previous/next bindings set earlier in configs/copilot.lua (that
+-- plugin's config() runs during lazy.nvim setup, before this file loads).
+-- Re-apply them now so Copilot wins.
+require("configs.copilot").set_keymaps()
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- treesitter
