@@ -21,11 +21,15 @@ function M.set_keymaps()
   local keymap = vim.keymap.set
   local opts = { silent = true }
 
-  -- Set <C-j> to accept copilot suggestion (copilot.vim's own documented
-  -- default binding). <C-c> is left alone: overriding it here replaced
-  -- Neovim's native "leave insert mode" behavior, and inserted a stray
-  -- newline via the fallback whenever no suggestion was showing.
-  keymap("i", "<C-j>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+  -- Set <C-f> to accept copilot suggestion. copilot.vim's own documented
+  -- default binding is <C-j>, but that's an awkward reach; <C-f> has no
+  -- native Insert-mode meaning and isn't claimed by any plugin here.
+  -- <C-c> is left alone: overriding it replaced Neovim's native "leave
+  -- insert mode" behavior, and inserted a stray newline via the fallback
+  -- whenever no suggestion was showing. <C-r> is left alone too: it's the
+  -- native "insert register contents" key, used constantly to paste while
+  -- typing.
+  keymap("i", "<C-f>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
 
   -- Set <C-t> to accept line
   keymap("i", "<C-t>", "<Plug>(copilot-accept-line)", opts)
