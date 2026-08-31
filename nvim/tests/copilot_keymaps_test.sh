@@ -13,22 +13,34 @@ trap 'rm -f "$result_file"' EXIT
 
 nvim --headless -c '
 lua vim.schedule(function() vim.defer_fn(function()
-  local expected = {
-    ["<C-j>"] = "copilot accept (expr mapping calling copilot#Accept)",
+  -- Plug-mapped keys: rhs must match exactly. <C-f> is an expr mapping
+  -- calling copilot#Accept(), so just check it wires up copilot#Accept
+  -- rather than pinning the exact escaped string.
+  local expected_exact = {
     ["<C-h>"] = "<Plug>(copilot-previous)",
     ["<C-l>"] = "<Plug>(copilot-next)",
   }
   local lines = {}
   local ok = true
-  for key, desc in pairs(expected) do
+  for key, want in pairs(expected_exact) do
     local m = vim.fn.maparg(key, "i", false, true)
     local rhs = m and m.rhs or nil
-    local is_arrow = rhs == "<Left>" or rhs == "<Right>" or rhs == "<Down>" or rhs == "<Up>"
-    if is_arrow then
+    if rhs ~= want then
       ok = false
-      table.insert(lines, "FAIL " .. key .. ": expected " .. desc .. ", got NvChad arrow-key mapping (" .. rhs .. ")")
+      table.insert(lines, "FAIL " .. key .. ": expected " .. want .. ", got " .. tostring(rhs))
     else
       table.insert(lines, "PASS " .. key .. ": " .. tostring(rhs))
+    end
+  end
+  do
+    local key = "<C-f>"
+    local m = vim.fn.maparg(key, "i", false, true)
+    local rhs = m and m.rhs or nil
+    if not (m and m.expr == 1 and rhs and rhs:find("copilot#Accept", 1, true)) then
+      ok = false
+      table.insert(lines, "FAIL " .. key .. ": expected expr mapping calling copilot#Accept, got " .. tostring(rhs))
+    else
+      table.insert(lines, "PASS " .. key .. ": " .. rhs)
     end
   end
   local f = io.open("'"$result_file"'", "w")
