@@ -27,6 +27,7 @@ return {
         -- Formatters / linters
         "stylua",
         "prettier",
+        "eslint_d",
         "ruff", -- also the Python LSP server
       },
     },

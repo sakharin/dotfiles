@@ -8,8 +8,10 @@ local options = {
       "ruff_format", -- Runs 'ruff format' for code style
       "ruff_organize_imports", -- Specifically for import sorting
     },
-    javascript = { "prettier" },
-    typescript = { "prettier" },
+    javascript = { "eslint_d", "prettier" },
+    javascriptreact = { "eslint_d", "prettier" },
+    typescript = { "eslint_d", "prettier" },
+    typescriptreact = { "eslint_d", "prettier" },
     json = { "prettier" },
   },
   formatters = {
@@ -28,7 +30,7 @@ local options = {
 
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 500,
+    timeout_ms = 2000,
     lsp_format = "fallback",
   },
 }
